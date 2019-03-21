@@ -1,0 +1,36 @@
+﻿@model TMWork.Data.Core.Domain.IndividualButtonPartial
+
+    <div class="btn-group" role="group">
+        @Html.Partial("_IndividualButtonPartial",
+                             new IndividualButtonPartial
+                             {
+                                 Folder = Model.Folder,
+                                 Page = "CreateEdit",
+                                 ButtonType = "btn-primary",
+                                 Glyph = "pencil-alt",
+                                 Id = Model.Id,
+                                 pagetype="edit"
+
+                             })
+        @Html.Partial("_IndividualButtonPartial",
+                                new IndividualButtonPartial
+                                {
+                                    Folder = Model.Folder,
+                                    Page = "CreateEdit",
+                                    ButtonType = "btn-success",
+                                    Glyph = "list",
+                                    Id = Model.Id,
+                                    pagetype = "view"
+                                })
+        @*@Html.Partial("_IndividualButtonPartial",
+                                new IndividualButtonPartial
+                                {
+                                    Folder = Model.Folder,
+                                    Page = "Delete",
+                                    ButtonType = "btn-danger",
+                                    Glyph = "trash",
+                                    Id = Model.Id,
+                                    pagetype = "view"
+                                })*@
+
+    </div>

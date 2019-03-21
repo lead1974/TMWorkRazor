@@ -1,0 +1,380 @@
+﻿
+@page
+@model TMWork.Pages.IndexModel
+@using TMWork.GoogleReCaptcha.Web.Validation;
+@{
+    ViewData["Title"] = "Home page";
+
+}
+
+<header id="home-section">
+    <div class="dark-overlay">
+        <div class="home-inner">
+            <div class="container">
+                <div class"row">
+                    <div>
+                        @Html.Partial("_StatusMessage", Model.StatusMessage)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 d-none d-lg-block">
+                        <h1 class="display-4"><strong>@configuration.GetSection("OurMissionSettintgs")["OurMission"]</strong></h1>
+                        <div class="d-flex flex-row">
+                            <div class="p-4 align-self-start">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="p-4 align-self-end">
+                                @configuration.GetSection("OurMissionSettintgs")["ourMissionOne"]
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row">
+                            <div class="p-4 align-self-start">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="p-4 align-self-end">
+                                @configuration.GetSection("OurMissionSettintgs")["ourMissionTwo"]
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row">
+                            <div class="p-4 align-self-start">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="p-4 align-self-end">
+                                @configuration.GetSection("OurMissionSettintgs")["ourMissionThree"]
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card bg-primary text-center card-form">
+                            <div class="card-body" id="contactUS">
+                                <h3>Contact Us Today</h3>
+                                <p>Please fill out this form to get us started</p>
+                                <form method="post" class="form-horizontal" asp-antiforgery="true" id="contactForm">
+
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Your Name" asp-for="contact.Name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Your Email" asp-for="contact.Email" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" class="form-control" placeholder="Your Phone" asp-for="contact.Phone" />
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="3" placeholder="Your Message" asp-for="contact.Message"></textarea>
+                                        </div>
+                                        <div class="form-group agreeterms">
+                                            <input type="checkbox" value="false" asp-for="contact.AgreeTerms">  Agreed with Terms and Conditions
+                                        </div>
+                                        <div class="form-group">
+                                            @*<div class="g-recaptcha" data-sitekey="@configuration.GetSection("GoogleReCaptcha")["SiteKey"]"></div>*@
+                                            <div id="ReCaptchContainer"></div>
+                                        </div>
+                                    </fieldset>
+                                    @*<input class="btn btn-sm btn-primary js-contact-clicked" value="Submit Inquiry">*@
+
+                                    <input type="button"
+                                           class='btn btn-outline-light btn-block js-contact-clicked'
+                                           data-contact-name="@Model.contact.Name" data-contact-email="@Model.contact.Email"
+                                           data-contact-phone="@Model.contact.Phone" data-contact-message="@Model.contact.Message"
+                                           value="Contact Us" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- EXPLORE HEAD -->
+<section id="our-office-head-section">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="py-5">
+                    <h1 class="display-4">Our Office located at</h1>
+                    <p class="lead">
+                        @configuration.GetSection("ContactInfoSettintgs")["OfficeLocation1"]
+                    </p>
+                    <p class="lead">
+                        @configuration.GetSection("ContactInfoSettintgs")["OfficeLocation2"]
+                    </p>
+                    <p class="lead">
+                        @configuration.GetSection("ContactInfoSettintgs")["OfficeLocation3"]
+                    </p>
+                    <p class="lead">
+                        Contact @configuration.GetSection("ContactInfoSettintgs")["Phone"]
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPLORE SECTION -->
+<section id="our-office-section" class="bg-light text-muted py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <iframe src=@configuration.GetSection("SiteSettings")["GoogleMapCoordinates"] width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CREATE HEAD -->
+<section id="our-team-head-section" class="bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="py-5">
+                    <h1 class="display-4">Our Team Members</h1>
+                    <p class="lead">When it comes to Appliance Repair, there is no one you can trust more than AT Appliance Service INC located in Orange County California. We have been in business for over a decade and our certified specialists have serviced thousands of households here in Orange County</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CREATE SECTION -->
+<section id="our-team-section" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <img class="img img-thumbnail img-responsive img-center" style="width:200px; height:200px" src="~/img/andrei.jpg" />
+            </div>
+            <div class="col-sm">
+                <img class="img img-thumbnail img-responsive img-center" style="width:200px; height:200px" src="~/img/tim.jpg" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                Andrew Dobryvechir
+            </div>
+            <div class="col-sm">
+                Tim Alayev
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@*<!-- SHARE HEAD -->
+    <section id="share-head-section" class="bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="py-5">
+                        <h1 class="display-4">Share</h1>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sed, magni, veritatis aliquam sequi eveniet? Rerum quia accusantium alias provident perferendis</p>
+                        <a href="#" class="btn btn-outline-light">Find Out More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHARE SECTION -->
+    <section id="share-section" class="py-5 bg-light text-muted">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/share-section1.jpg" alt="" class="img-fluid mb-3 rounded-circle">
+                </div>
+                <div class="col-md-6">
+                    <h3>Share what you create</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus provident sed mollitia, ab sint fuga quibusdam. At repellendus architecto nobis nesciunt suscipit, nisi ipsam quaerat?</p>
+                    <div class="d-flex flex-row">
+                        <div class="p-4 align-self-start">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="p-4 align-self-end">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, architecto, quaerat. Quis cum eius itaque ipsa magni quam, illo molestias
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <div class="p-4 align-self-start">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="p-4 align-self-end">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, architecto, quaerat. Quis cum eius itaque ipsa magni quam, illo molestias
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+@section scripts
+    {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //var validator = $("#contactForm").kendoValidator().data("kendoValidator")
+            //$(".js-contact-clicked").click(function () {
+            //    validator.validate();
+            //});
+
+            //$("#contact_Phone").kendoMaskedTextBox({
+            //    mask: "(999) 000-0000"
+            //});
+
+            //$(function () {
+            //    var container = $("#contactForm");
+            //    kendo.init(container);
+            //    container.kendoValidator({
+            //        rules: {
+            //            validmask: function (input) {
+            //                console.log(input);
+            //                if (input.is("[data-validmask-msg]") && input.val() != "") {
+            //                    var maskedtextbox = input.data("kendoMaskedTextBox");
+            //                    return maskedtextbox.value().indexOf(maskedtextbox.options.promptChar) === -1;
+            //                }
+
+            //                return true;
+            //            }
+            //        }
+            //    });
+            //});
+
+            $("#contactForm").on("click", ".js-contact-clicked", function () {
+                var button = $(this);
+                //var name = button.attr("data-contact-name");
+                //var phone = button.attr("data-contact-phone");
+                //var email = button.attr("data-contact-email");
+                //var message = button.attr("data-contact-message");
+
+                var txtName = document.querySelector('#contact_Name');
+                var txtPhone = document.querySelector('#contact_Phone');
+                var txtEmail = document.querySelector('#contact_Email');
+                var txtMessage = document.querySelector('#contact_Message');
+                var cbAgreeTerms = document.querySelector('#contact_AgreeTerms');
+                //var txtCaptcha = document.querySelector('.g-recaptcha');
+
+                var valid = true;
+                //alertify.error(txtCaptcha.value);
+                //Validate Entries
+                if (txtName.value == "") {
+                    txtName.setAttribute('class', "form-control custom_error");
+                    alertify.error("Enter Your Name!");
+                    valid = false;
+                }
+                else {
+                    txtName.removeAttribute('class', "form-control custom_error");
+                    txtName.setAttribute('class', "form-control");
+                }
+                if (valid && txtEmail.value == "") {
+                    txtEmail.setAttribute('class', "form-control custom_error");
+                    alertify.error("Enter Your Email!");
+                    valid = false;
+                }
+                else {
+                    txtEmail.removeAttribute('class', "form-control custom_error");
+                    txtEmail.setAttribute('class', "form-control");
+                }
+                if (valid && txtPhone.value == "") {
+                    txtPhone.setAttribute('class', "form-control custom_error");
+                    alertify.error("Enter Your Phone Number!");
+                    valid = false;
+                }
+                else {
+                    txtPhone.removeAttribute('class', "form-control custom_error");
+                    txtPhone.setAttribute('class', "form-control");
+                }
+
+                if (valid && txtMessage.value == "") {
+                    txtMessage.setAttribute('class', "form-control custom_error");
+                    alertify.error("Enter Your Message!");
+                    valid = false;
+                }
+                else {
+                    txtMessage.removeAttribute('class', "form-control custom_error");
+                    txtMessage.setAttribute('class', "form-control");
+                }
+                if (valid && typeof (grecaptcha) != 'undefined') {
+                    var response = grecaptcha.getResponse();
+                    if (response.length === 0) {
+                        alertify.error("Are you a robot?");
+                        valid = false;
+                    }
+                }
+                if (valid) {
+                    $.ajax({
+                        url: "/Index?handler=Contact",
+                        method: "POST",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("XSRF-TOKEN",
+                                $('input:hidden[name="__RequestVerificationToken"]').val());
+                        },
+                        data: ({
+                            //insert your parameters to pass to controller
+                            name: txtName.value,
+                            email: txtEmail.value,
+                            phone: txtPhone.value,
+                            message: txtMessage.value,
+                            agreeterms: cbAgreeTerms.value
+                            //GoogleReCaptchaResponse: txtCaptcha.value
+                        }),
+                        success: function (result) {
+                            if (result.messageBack.includes("ERROR")) {
+                                alertify.error(result.messageBack);
+                            }
+                            else {
+                                alertify.success(result.messageBack);
+                                txtName.value = "";
+                                txtEmail.value = "";
+                                txtPhone.value = "";
+                                txtMessage.value = "";
+                            }
+
+                        },
+                        failure: function (result) {
+                            alertify.error(result.messageBack);
+                            //alert(result.messageBack);
+                        }
+                    });
+                }
+            });
+
+
+
+
+        });
+
+        var your_site_key = "6Ld4oGMUAAAAAAFYy39hbSCg7dEXOZ8E6An_RMo7" // '<%= ConfigurationManager.AppSettings["SiteKey"]%>';
+        //alertify.error(your_site_key);
+        var renderRecaptcha = function () {
+            grecaptcha.render('ReCaptchContainer', {
+                'sitekey': your_site_key,
+                'callback': reCaptchaCallback,
+                theme: 'light', //light or dark
+                type: 'image',// image or audio
+                size: 'normal'//normal or compact
+            });
+        };
+
+        var reCaptchaCallback = function (response) {
+            if (response !== '') {
+                //jQuery('#lblMessage').css('color', 'green').html('Success');
+            }
+        };
+
+                //jQuery('button[type="button"]').click(function (e) {
+                //    var message = 'Please check the checkbox';
+                //    if (typeof (grecaptcha) != 'undefined') {
+                //        var response = grecaptcha.getResponse();
+                //        if (response.length === 0) { alertify.error("Are you a robot?"); }
+                //    }
+                //});
+
+    </script>
+}

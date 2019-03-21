@@ -1,0 +1,7 @@
+﻿@model TMWork.Data.Core.Domain.IndividualButtonPartial
+@*
+*@
+<a class="btn @Model.ButtonType" asp-page="@Model.Path"
+   asp-route-id="@Model.ActionParameters" asp-route-pagetype="@Model.pagetype" onclick="busyLoadShow()">
+    <span class="fa fa-@Model.Glyph"></span>
+</a>

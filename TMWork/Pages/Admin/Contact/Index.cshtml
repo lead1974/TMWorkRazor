@@ -1,0 +1,83 @@
+﻿@page
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@model TMWork.Pages.Admin.Contact.IndexModel
+@{
+    ViewData["Title"] = "Manage Contacts";
+}
+
+<h2>Manage Contacts</h2>
+<hr />
+<br />
+<input class="k-textbox" id="searchContacts" placeholder="Search data..." /> <i>Minimum 3 charachters required to trigger search function</i>
+<br />
+<p>
+    <div class="col-lg-12">
+
+    @(Html.Kendo().Grid<Contact>()
+        .Name("gridContact")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.ContactId).Filterable(false);
+            columns.Bound(p => p.Name).Filterable(filter => filter.Extra(false).Operators(o => o.ForString(f => f.Clear().Contains("Contains"))));
+            columns.Bound(p => p.Email).Filterable(filter => filter.Extra(false).Operators(o => o.ForString(f => f.Clear().Contains("Contains"))));
+            columns.Bound(p => p.Phone).Filterable(filter => filter.Extra(false).Operators(o => o.ForString(f => f.Clear().Contains("Contains"))));
+            columns.Bound(p => p.Message).Filterable(filter => filter.Extra(false).Operators(o => o.ForString(f => f.Clear().Contains("Contains"))));
+            columns.Command(command =>
+            {
+                command.Edit();
+                command.Destroy();
+            }).Width(250); //
+        })
+        .ToolBar(tools =>
+        {
+            tools.Create();
+            tools.Excel();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .Sortable()
+        .Pageable()
+        .Filterable()
+        .DataSource(datasource =>
+                    datasource
+                    .WebApi()
+                    .Model(model =>
+                    {
+                        model.Id(c => c.ContactId);
+                    })
+        //.Categ(Categ => Categ.Error("error_handler"))
+        .Read(read => read.Action("GetAllContacts", "Contact"))
+        .Create(create => create.Action("CreateContact", "Contact"))
+        .Update(update => update.Action("UpdateContact", "Contact", new { id = "{0}" }))
+        .Destroy(destroy => destroy.Action("DeleteContact", "Contact", new { id = "{0}" }))
+        .PageSize(10)
+        )
+
+    )
+</div>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#searchContacts").on("keyup change", function (e) {
+                var grid = $("#gridContact").data("kendoGrid");
+                var searchTxt = $("#searchContacts").val();
+
+                if (searchTxt.length >= 3) {
+
+                    grid.dataSource.filter({
+                        logic: "or", filters: [
+                            { field: "Name", operator: "contains", value: searchTxt },
+                            { field: "Phone", operator: "contains", value: searchTxt },
+                            { field: "Email", operator: "contains", value: searchTxt },
+                            { field: "Message", operator: "contains", value: searchTxt }]
+                    });
+                }
+                else if (searchTxt.length == 0) {
+                    grid.dataSource.filter([]);
+                }
+            });
+
+        });
+
+    </script>
