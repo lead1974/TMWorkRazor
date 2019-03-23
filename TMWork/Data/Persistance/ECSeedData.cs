@@ -43,8 +43,8 @@ namespace TMWork.Data.Persistance
         public async Task EnsureSeedData()
         {
             //await DeleteUser();
-            //await SeedAdminUsers();
-            await SeedContacts();
+            await SeedAdminUsers();
+            //await SeedContacts();
         }
 
         private async Task DeleteUser()

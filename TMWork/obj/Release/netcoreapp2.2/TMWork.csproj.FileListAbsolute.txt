@@ -27,7 +27,6 @@ C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Share
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Shared\EditorTemplates\Integer.g.cshtml.cs
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Shared\EditorTemplates\Number.g.cshtml.cs
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Shared\EditorTemplates\Password.g.cshtml.cs
-C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Shared\EditorTemplates\RoleEditor.g.cshtml.cs
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Shared\EditorTemplates\String.g.cshtml.cs
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Shared\EditorTemplates\Time.g.cshtml.cs
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Shared\EditorTemplates\Url.g.cshtml.cs
@@ -80,3 +79,4 @@ C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Areas\Ident
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Shared\_LoginPartial.g.cshtml.cs
+C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Release\netcoreapp2.2\Razor\Pages\Admin\Contact\SendMail.g.cshtml.cs

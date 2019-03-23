@@ -20,6 +20,7 @@ namespace TMWork.Data.Persistance.EntityConfiguration
             builder.Property(x => x.Email).HasMaxLength(200).IsRequired();
             builder.Property(x => x.Phone).IsRequired();
             builder.Property(x => x.Message).HasMaxLength(2000).IsRequired();
+            builder.Property(x => x.Status).HasMaxLength(50);
         }
     }
 }

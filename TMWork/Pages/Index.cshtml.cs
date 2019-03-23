@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using DNTBreadCrumb.Core;
 using TMWork.Data.Core;
 using TMWork.Data.Core.Domain;
 using TMWork.Services;
 using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
-using System.Text.RegularExpressions;
 using TMWork.ViewModels;
 using AutoMapper;
 using System.ComponentModel.DataAnnotations;
@@ -69,22 +63,25 @@ namespace TMWork.Pages
 
             if (contact.Name != null && contact.Name.Length > 0)
             {
-                var addContact = new Data.Core.Domain.Contact()
-                {
-                    Name = contact.Name,
-                    Phone = contact.Phone,
-                    Email = contact.Email,
-                    Message = contact.Message,
-                    DateUpdated = DateTime.UtcNow,
-                    UpdatedBy = contact.Name,
-                    DateCreated = DateTime.UtcNow,
-                    CreatedBy = contact.Name
-                };
-                _unitOfWork.Contacts.Add(addContact);
-                _unitOfWork.Complete();
+                //var addContact = new Data.Core.Domain.Contact()
+                //{
+                //    Name = contact.Name,
+                //    Phone = contact.Phone,
+                //    Email = contact.Email,
+                //    Message = contact.Message,
+                //    AgreeTerms = contact.AgreeTerms,
+                //    Sent = false,
+                //    Status = "NEW",
+                //    DateUpdated = DateTime.UtcNow,
+                //    UpdatedBy = contact.Name,
+                //    DateCreated = DateTime.UtcNow,
+                //    CreatedBy = contact.Name
+                //};
+                //_unitOfWork.Contacts.Add(addContact);
+                //_unitOfWork.Complete();
 
-                string body = this.createEmailBody_Contact(addContact);
-                await _sendemail.SendEmailAsync("", "from Contact page", body);
+                //string body = this.createEmailBody_Contact(addContact);
+                //await _sendemail.SendEmailAsync("", "from Contact page", body);
 
                 StatusMessage = "Dear Customer, thank you for reaching out! Our team will contact you shortly!";
             }
@@ -156,6 +153,9 @@ namespace TMWork.Pages
                     Phone = contact.Phone,
                     Email = contact.Email,
                     Message = contact.Message,
+                    AgreeTerms = contact.AgreeTerms,
+                    Sent = false,
+                    Status = "NEW",
                     DateUpdated = DateTime.UtcNow,
                     UpdatedBy = contact.Name,
                     DateCreated = DateTime.UtcNow,
@@ -169,11 +169,11 @@ namespace TMWork.Pages
                 catch (Exception ex)
                 { }
 
-                if (!model.AgreeTerms)
-                {
-                    string body = this.createEmailBody_Contact(contact);
-                    await _sendemail.SendEmailAsync("", "from Contact page", body);
-                }
+                //if (!model.AgreeTerms)
+                //{
+                //    string body = this.createEmailBody_Contact(contact);
+                //    await _sendemail.SendEmailAsync("", "from Contact page", body);
+                //}
 
                 //StatusMessage = "Dear Customer, thank you for reaching out! Our team will contact you shortly!";
             }
