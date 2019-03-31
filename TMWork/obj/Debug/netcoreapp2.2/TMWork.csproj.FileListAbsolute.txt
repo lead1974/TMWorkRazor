@@ -79,3 +79,4 @@ C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Debug\netcoreapp2.2\TMWork.Views.pdb
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Debug\netcoreapp2.2\TMWork.dll
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Debug\netcoreapp2.2\TMWork.pdb
 C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Debug\netcoreapp2.2\TMWork.csproj.CopyComplete
+C:\Andrey\WebApps\TMWorkRazor\TMWork\obj\Debug\netcoreapp2.2\TMWork.csprojAssemblyReference.cache

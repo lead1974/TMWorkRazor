@@ -73,8 +73,12 @@
                     @*<li class="nav-item">
                             <a href="#share-head-section" class="nav-link">Share</a>
                         </li>*@
-                    <li class="nav-item">
+                    @*<li class="nav-item">
                         @await Html.PartialAsync("_LoginPartial")
+                    </li>*@
+                    <li class="nav-item">
+                        <div id="yelp-biz-badge-plain-FiuZt2Dxv5HDHJn2vYnHnw"><a href="http://yelp.com/biz/at-appliance-service-garden-grove?utm_medium=badge_button&amp;utm_source=biz_review_badge" target="_blank">Check out AT Appliance Service on Yelp</a></div>
+                        <script>(function (d, t) { var g = d.createElement(t); var s = d.getElementsByTagName(t)[0]; g.id = "yelp-biz-badge-script-plain-FiuZt2Dxv5HDHJn2vYnHnw"; g.src = "//yelp.com/biz_badge_js/en_US/plain/FiuZt2Dxv5HDHJn2vYnHnw.js"; s.parentNode.insertBefore(g, s); }(document, 'script'));</script>
                     </li>
                 </ul>
             </div>
@@ -86,6 +90,8 @@
     <footer class="border-top footer py-3 text-muted">
         <div class="container ">
             &copy; @DateTime.Now.Year <a target="_blank" href="/" title="@configuration.GetSection("SiteSettings")["SiteName"]">@configuration.GetSection("SiteSettings")["SiteDomain"]</a>. All Rights Reserved.
+            <div id="yelp-biz-badge-rc-FiuZt2Dxv5HDHJn2vYnHnw"><a href="http://yelp.com/biz/at-appliance-service-garden-grove?utm_medium=badge_reviews&amp;utm_source=biz_review_badge" target="_blank">Check out AT Appliance Service on Yelp</a></div>
+            <script>(function (d, t) { var g = d.createElement(t); var s = d.getElementsByTagName(t)[0]; g.id = "yelp-biz-badge-script-rc-FiuZt2Dxv5HDHJn2vYnHnw"; g.src = "//yelp.com/biz_badge_js/en_US/rc/FiuZt2Dxv5HDHJn2vYnHnw.js"; s.parentNode.insertBefore(g, s); }(document, 'script'));</script>
         </div>
     </footer>
 
